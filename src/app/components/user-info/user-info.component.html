@@ -1,0 +1,89 @@
+<button type="submit" class="btn btn-primary offset-md-4 mt-3" (click) = 'back()'>Back</button>
+<button type="submit" class="btn btn-primary offset-md-3 mt-3" (click)="edit()">Edit</button>
+<form class=" col-xl-4 offset-md-4 mt-3" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <label for = "name">User's name</label>
+    <input  type="text"
+            #editName="ngModel"
+            [class.is-invalid]="editName.invalid && editName.dirty"
+            class="form-control"
+            name="name"
+            placeholder="Enter name"
+            [ngModel]="user?.name"
+            [readonly]="editeForm"
+            (ngModelChange)="user.name = $event"
+            required
+            minlength="2"
+            maxlength="30"
+    >
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input  type="text"
+            #editUsername="ngModel"
+            [class.is-invalid]="editUsername.invalid && editUsername.dirty"
+            name="username"
+            class="form-control"
+            placeholder="Username"
+            [ngModel]="user?.username"
+            [readonly]="editeForm"
+            (ngModelChange)="user.username = $event"
+            required
+            minlength="2"
+            maxlength="15"
+    >
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input  type="email"
+            #editEmail="ngModel"
+            [class.is-invalid]="editEmail.invalid && editEmail.dirty"
+            name="email"
+            class="form-control"
+            placeholder="Email"
+            [ngModel]="user?.email"
+            [readonly]="editeForm"
+            (ngModelChange)="user.email = $event"
+            required
+            minlength="2"
+            maxlength="20"
+    >
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone number</label>
+    <input  type="text"
+            #editPhone="ngModel"
+            [class.is-invalid]="editPhone.invalid && editPhone.dirty"
+            name="phone"
+            class="form-control"
+            placeholder="Phone number"
+            [ngModel]="user?.phone"
+            [readonly]="editeForm"
+            (ngModelChange)="user.phone = $event"
+            required
+            minlength="7"
+            maxlength="15"
+    >
+  </div>
+  <div class="form-group">
+    <label for="website">Website</label>
+    <input  type="text"
+            #editWebsite="ngModel"
+            [class.is-invalid]="editWebsite.invalid && editWebsite.dirty"
+            name="website"
+            class="form-control"
+            placeholder="website"
+            [ngModel]="user?.website"
+            [readonly]="editeForm"
+            (ngModelChange)="user.website = $event"
+            required
+            minlength="7"
+            maxlength="15"
+    >
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          *ngIf = "editName.dirty || editUsername.dirty || editEmail.dirty || editPhone.dirty || editWebsite.dirty">
+          Edit
+  </button>
+</form>
